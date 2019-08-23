@@ -1,17 +1,22 @@
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  project: ""
+  clusterName: acmecluster1
+  environmentGitOwner: devopsgym
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: myproject-2201
   provider: gke
-  zone: ""
-gitops: true
+  zone: europe-west1-b
 environments:
 - key: dev
 - key: staging
 - key: production
+gitops: true
 ingress:
-  domain: ""
+  domain: 35.195.205.34.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
@@ -21,13 +26,13 @@ secretStorage: vault
 storage:
   logs:
     enabled: true
-    url: ""
+    url: gs://acmecluster1-logs-260926bb-336e-47d5-bee9-e31783684fac
   reports:
     enabled: true
-    url: ""
+    url: gs://acmecluster1-reports-965ee73c-3a0e-4208-b9b0-d89708523e
   repository:
     enabled: true
-    url: ""
+    url: gs://acmecluster1-repository-6bb04a9f-1168-47b7-be14-17d3667
 versionStream:
   ref: master
   url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
